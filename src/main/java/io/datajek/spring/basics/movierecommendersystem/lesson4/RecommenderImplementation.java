@@ -7,20 +7,11 @@ public class RecommenderImplementation {
 	
 	//use filter interface to select filter
 	@Autowired
-    private Filter filter;
-    
-    public RecommenderImplementation(Filter filter) {
-    	this.filter = filter;
-    }
-	
-	public String[] recommendMovies(String movie) {
-		
-		//print the name of interface implementation being used
-	    System.out.println("Name of the filter in use: " + filter + "\n");
-
-	    String[] results = filter.getRecommendations(movie);
-	    
-        //return the results
-		return results;
-	}
+    private Filter contentBasedFilter;
+ 
+    public String [] recommendMovies (String movie) {       
+        System.out.println("\nName of the filter in use: " + contentBasedFilter + "\n");
+        String[] results = contentBasedFilter.getRecommendations("Finding Dory");
+        return results;
+   }
 }
